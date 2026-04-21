@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ednova Consulting | Intelligent Automation & Web Design</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     
@@ -16,19 +17,49 @@
                         'ednova-blue': '#0C2C4E',
                         'ednova-cyan': '#1FE0D6',
                         'ednova-light': '#F8FAFC',
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
                     }
                 }
             }
         }
     </script>
     <style>
-        .lang-hidden { display: none; }
         html { scroll-behavior: smooth; }
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .blob-bg {
+            filter: blur(80px);
+            z-index: -1;
+        }
     </style>
 </head>
-<body class="bg-ednova-light text-slate-800 font-sans">
+<body class="bg-ednova-light text-slate-800 font-sans overflow-x-hidden">
 
-    <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 border-b border-slate-200">
+    <div class="fixed inset-0 blob-bg">
+        <div class="absolute top-0 -left-4 w-72 h-72 bg-ednova-cyan/30 rounded-full mix-blend-multiply animate-blob"></div>
+        <div class="absolute top-0 -right-4 w-72 h-72 bg-blue-400/20 rounded-full mix-blend-multiply animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-8 left-20 w-72 h-72 bg-purple-300/20 rounded-full mix-blend-multiply animate-blob animation-delay-4000"></div>
+    </div>
+
+    <nav class="fixed w-full glass z-50 border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-2">
                 <div class="w-8 h-8 bg-ednova-blue rounded-lg flex items-center justify-center">
@@ -37,125 +68,139 @@
                 <span class="text-2xl font-bold text-ednova-blue">Ednova<span class="text-ednova-cyan font-medium">Consulting</span></span>
             </div>
             
-            <div class="hidden md:flex items-center gap-8">
-                <a href="#home" data-en="Home" data-es="Inicio" class="font-medium hover:text-ednova-cyan transition">Home</a>
-                <a href="#programs" data-en="Programs" data-es="Programas" class="font-medium hover:text-ednova-cyan transition">Programs</a>
-                <a href="#portfolio" data-en="Portfolio" data-es="Portafolio" class="font-medium hover:text-ednova-cyan transition">Portfolio</a>
-                <a href="#contact" data-en="Contact" data-es="Contacto" class="bg-ednova-blue text-white px-5 py-2 rounded-full hover:bg-ednova-cyan hover:text-ednova-blue transition">Contact</a>
-                
-                <button onclick="toggleLanguage()" class="flex items-center gap-2 border border-slate-300 px-3 py-1 rounded-md text-sm font-bold hover:bg-slate-50 transition">
-                    <span id="lang-label">ESP</span>
+            <div class="flex flex-col items-end gap-1">
+                <div class="hidden md:flex items-center gap-8 mb-1">
+                    <a href="#home" data-en="Home" data-es="Inicio" class="font-medium hover:text-ednova-cyan transition">Home</a>
+                    <a href="#programs" data-en="Programs" data-es="Programas" class="font-medium hover:text-ednova-cyan transition">Programs</a>
+                    <a href="#portfolio" data-en="Portfolio" data-es="Portafolio" class="font-medium hover:text-ednova-cyan transition">Portfolio</a>
+                    <a href="#contact" data-en="Contact" data-es="Contacto" class="bg-ednova-blue text-white px-5 py-2 rounded-full hover:bg-ednova-cyan hover:text-ednova-blue transition shadow-lg">Contact</a>
+                </div>
+                <button onclick="toggleLanguage()" class="flex items-center gap-2 bg-white/50 border border-slate-300 px-3 py-1 rounded-full text-[10px] font-bold hover:bg-ednova-cyan/20 transition shadow-sm">
+                    🌐 <span id="lang-btn-text">TRANSLATE / TRADUCIR:</span> <span id="lang-label" class="text-ednova-blue">ESP</span>
                 </button>
             </div>
         </div>
     </nav>
 
-    <section id="home" class="pt-32 pb-20 px-6">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <h1 class="text-5xl md:text-7xl font-extrabold text-ednova-blue mb-6 leading-tight">
-                    <span data-en="Automate your success" data-es="Automatiza tu éxito">Automate your success</span>
+    <section id="home" class="pt-48 pb-32 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <div data-aos="fade-up">
+                <h1 class="text-6xl md:text-8xl font-black text-ednova-blue mb-8 leading-tight">
+                    <span data-en="Automate your" data-es="Automatiza tu">Automate your</span><br>
+                    <span id="typing-text" class="text-transparent bg-clip-text bg-gradient-to-r from-ednova-blue to-ednova-cyan">Success</span>
                 </h1>
-                <p class="text-lg text-slate-600 mb-8 max-w-lg" data-en="We transform manual processes into intelligent workflows and build high-performance digital identities." data-es="Transformamos procesos manuales en flujos de trabajo inteligentes y construimos identidades digitales de alto rendimiento.">
-                    We transform manual processes into intelligent workflows and build high-performance digital identities.
+                <p class="text-xl text-slate-600 mb-10 max-w-2xl mx-auto" data-en="We bridge the gap between complex technology and your daily business operations." data-es="Cerramos la brecha entre la tecnología compleja y tus operaciones comerciales diarias.">
+                    We bridge the gap between complex technology and your daily business operations.
                 </p>
-                <div class="flex gap-4">
-                    <a href="#contact" class="bg-ednova-blue text-white px-8 py-4 rounded-xl font-bold shadow-lg shadow-blue-900/20 hover:-translate-y-1 transition" data-en="Book a Discovery Call" data-es="Agendar Llamada">Book a Discovery Call</a>
+                <div class="flex justify-center gap-6">
+                    <a href="#contact" class="bg-ednova-blue text-white px-10 py-5 rounded-2xl font-bold shadow-2xl hover:scale-105 transition-all active:scale-95" data-en="Let's Talk" data-es="Hablemos">Let's Talk</a>
                 </div>
-            </div>
-            <div class="bg-gradient-to-br from-ednova-blue to-ednova-cyan h-[400px] rounded-3xl shadow-2xl relative overflow-hidden">
-                <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
             </div>
         </div>
     </section>
 
-    <section id="programs" class="py-20 bg-white px-6">
+    <section id="programs" class="py-24 px-6 relative">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-16 text-ednova-blue" data-en="Our Service Tiers" data-es="Nuestros Niveles de Servicio">Our Service Tiers</h2>
-            <div class="grid md:grid-cols-3 gap-8">
+            <h2 class="text-4xl font-bold text-center mb-20 text-ednova-blue" data-aos="fade-up" data-en="Our Service Tiers" data-es="Nuestros Niveles de Servicio">Our Service Tiers</h2>
+            <div class="grid md:grid-cols-3 gap-10">
                 
-                <div class="p-8 rounded-2xl border border-slate-100 bg-slate-50 hover:border-ednova-cyan transition group">
-                    <h3 class="text-xl font-bold mb-4">Essential Digital</h3>
-                    <p class="text-slate-600 mb-6" data-en="Perfect for new ventures. Includes a professional landing page, domain, and WhatsApp integration." data-es="Perfecto para nuevos emprendimientos. Incluye una landing page profesional, dominio e integración con WhatsApp.">Perfect for new ventures. Includes a professional landing page, domain, and WhatsApp integration.</p>
-                    <span class="text-3xl font-black text-ednova-blue">$850</span>
+                <div class="glass p-10 rounded-3xl hover:shadow-2xl transition-all hover:-translate-y-2 group" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-2xl font-bold mb-4">Essential</h3>
+                    <p class="text-slate-600 mb-8" data-en="High-converting landing page + WhatsApp link." data-es="Landing page de alta conversión + link de WhatsApp.">High-converting landing page + WhatsApp link.</p>
+                    <div class="text-4xl font-black text-ednova-blue mb-0">$850</div>
                 </div>
                 
-                <div class="p-8 rounded-2xl border-2 border-ednova-blue bg-white shadow-xl relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-ednova-blue text-ednova-cyan text-[10px] font-bold px-3 py-1 uppercase" data-en="Recommended" data-es="Recomendado">Recommended</div>
-                    <h3 class="text-xl font-bold mb-4">Growth Kit</h3>
-                    <p class="text-slate-600 mb-6" data-en="Pro website (4-5 sections), Local SEO (Google Maps), and 2 custom promotional flyers." data-es="Web profesional (4-5 secciones), SEO Local (Google Maps) y 2 flyers promocionales personalizados.">Pro website (4-5 sections), Local SEO (Google Maps), and 2 custom promotional flyers.</p>
-                    <span class="text-3xl font-black text-ednova-blue">$1,350</span>
+                <div class="glass p-10 rounded-3xl border-2 border-ednova-cyan shadow-xl hover:shadow-ednova-cyan/20 transition-all hover:-translate-y-2 relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 right-0 bg-ednova-cyan text-ednova-blue text-[10px] font-bold px-4 py-1" data-en="MOST POPULAR" data-es="MÁS POPULAR">MOST POPULAR</div>
+                    <h3 class="text-2xl font-bold mb-4">Growth Kit</h3>
+                    <p class="text-slate-600 mb-8" data-en="Pro Web (5 sections) + Google Maps SEO + Flyers." data-es="Web Pro (5 secciones) + SEO Google Maps + Flyers.">Pro Web (5 sections) + Google Maps SEO + Flyers.</p>
+                    <div class="text-4xl font-black text-ednova-blue mb-0">$1,350</div>
                 </div>
                 
-                <div class="p-8 rounded-2xl border border-slate-100 bg-slate-50 hover:border-ednova-cyan transition">
-                    <h3 class="text-xl font-bold mb-4">Elite Full-Service</h3>
-                    <p class="text-slate-600 mb-6" data-en="Full website + brand identity (logo), 5 promotional flyers, and priority 24/7 support." data-es="Web completa + identidad de marca (logo), 5 flyers promocionales y soporte prioritario 24/7.">Full website + brand identity (logo), 5 promotional flyers, and priority 24/7 support.</p>
-                    <span class="text-3xl font-black text-ednova-blue">$2,150</span>
+                <div class="glass p-10 rounded-3xl hover:shadow-2xl transition-all hover:-translate-y-2" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-2xl font-bold mb-4">Elite</h3>
+                    <p class="text-slate-600 mb-8" data-en="Full Brand Identity + Custom Automation." data-es="Identidad de Marca completa + Automatización.">Full Brand Identity + Custom Automation.</p>
+                    <div class="text-4xl font-black text-ednova-blue mb-0">$2,150</div>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <section id="portfolio" class="py-20 px-6">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 text-ednova-blue" data-en="Featured Projects" data-es="Proyectos Destacados">Featured Projects</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="h-64 bg-slate-200 rounded-2xl flex items-center justify-center text-slate-400 font-bold italic">RPA Automation Case Study</div>
-                <div class="h-64 bg-slate-200 rounded-2xl flex items-center justify-center text-slate-400 font-bold italic">Daycare Web Platform</div>
+    <section id="portfolio" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-16 text-ednova-blue" data-aos="zoom-in" data-en="Featured Work" data-es="Trabajos Destacados">Featured Work</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="group relative overflow-hidden rounded-3xl h-80 bg-slate-800 shadow-xl" data-aos="fade-right">
+                    <div class="absolute inset-0 bg-ednova-blue/40 group-hover:bg-ednova-blue/10 transition"></div>
+                    <div class="absolute bottom-8 left-8 text-left">
+                        <p class="text-ednova-cyan font-bold uppercase tracking-widest text-xs mb-2">Web Design</p>
+                        <h4 class="text-2xl font-bold text-white">Modern Daycare Portal</h4>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-3xl h-80 bg-slate-700 shadow-xl" data-aos="fade-left">
+                    <div class="absolute inset-0 bg-ednova-blue/40 group-hover:bg-ednova-blue/10 transition"></div>
+                    <div class="absolute bottom-8 left-8 text-left">
+                        <p class="text-ednova-cyan font-bold uppercase tracking-widest text-xs mb-2">RPA Automation</p>
+                        <h4 class="text-2xl font-bold text-white">Cloud Workflow System</h4>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-20 bg-slate-900 text-white px-6">
-        <div class="max-w-7xl mx-auto">
+    <section id="contact" class="py-32 bg-slate-900 text-white px-6 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
             
-            <div class="flex flex-col md:flex-row items-center gap-8 mb-16 p-8 rounded-3xl bg-slate-800/40 border border-slate-700/50 backdrop-blur-sm">
-                <img src="profile-edith.JPG" alt="Edith Olivo" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-ednova-cyan shadow-2xl">
+            <div class="glass-dark p-10 rounded-[40px] mb-20 flex flex-col md:flex-row items-center gap-12" data-aos="fade-up">
+                <div class="relative">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-ednova-cyan to-blue-500 rounded-full blur opacity-75 animate-pulse"></div>
+                    <img src="profile-edith.JPG" alt="Edith Olivo" class="relative w-40 h-40 md:w-52 md:h-52 rounded-full object-cover border-2 border-white/20 shadow-2xl">
+                </div>
                 
-                <div class="text-center md:text-left">
-                    <div class="flex items-center justify-center md:justify-start gap-4 mb-2">
-                        <h2 class="text-3xl font-bold text-white">Edith Olivo</h2>
-                        <a href="https://www.linkedin.com/in/edith-olivo-ednova-consulting/" target="_blank" class="text-ednova-cyan hover:text-white transition-colors">
-                            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                            </svg>
+                <div class="text-center md:text-left flex-1">
+                    <div class="flex items-center justify-center md:justify-start gap-4 mb-4">
+                        <h2 class="text-4xl font-black">Edith Olivo</h2>
+                        <a href="https://www.linkedin.com/in/edith-olivo-ednova-consulting/" target="_blank" class="bg-ednova-cyan p-2 rounded-lg text-ednova-blue hover:scale-110 transition shadow-lg">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                         </a>
                     </div>
-                    <p class="text-ednova-cyan font-semibold text-lg mb-4">Senior Developer</p>
-                    <p class="text-slate-300 text-lg leading-relaxed max-w-3xl" 
-                       data-en="I help business owners reclaim their time. By building smart websites and automating repetitive tasks, I ensure your business runs smoothly so you can focus on growth, not paperwork." 
-                       data-es="Ayudo a dueños de negocios a recuperar su tiempo. Mediante sitios web inteligentes y la automatización de tareas repetitivas, me aseguro de que tu negocio funcione solo para que puedas enfocarte en crecer, no en el papeleo.">
-                        I help business owners reclaim their time. By building smart websites and automating repetitive tasks, I ensure your business runs smoothly so you can focus on growth, not paperwork.
+                    <p class="text-ednova-cyan text-xl font-bold mb-6 tracking-wide">SENIOR DEVELOPER</p>
+                    <p class="text-slate-300 text-lg leading-relaxed italic" 
+                       data-en="I turn manual chaos into digital order. I don't just build websites; I create systems that work for you while you sleep." 
+                       data-es="Transformo el caos manual en orden digital. No solo construyo sitios web; creo sistemas que trabajan por ti mientras duermes.">
+                        I turn manual chaos into digital order. I don't just build websites; I create systems that work for you while you sleep.
                     </p>
                 </div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-16">
-                <div>
-                    <h2 class="text-4xl font-bold mb-6" data-en="Send us a message" data-es="Envíanos un mensaje">Send us a message</h2>
-                    <form action="https://formspree.io/f/mkokrpwp" method="POST" class="space-y-4">
-                        <input type="text" name="name" placeholder="Full Name" required class="w-full p-4 rounded-lg bg-slate-800 border border-slate-700 focus:border-ednova-cyan outline-none">
-                        <input type="email" name="email" placeholder="Email Address" required class="w-full p-4 rounded-lg bg-slate-800 border border-slate-700 focus:border-ednova-cyan outline-none">
-                        <textarea name="message" rows="4" placeholder="How can we help?" required class="w-full p-4 rounded-lg bg-slate-800 border border-slate-700 focus:border-ednova-cyan outline-none"></textarea>
-                        <button type="submit" class="w-full bg-ednova-cyan text-ednova-blue font-bold py-4 rounded-lg hover:brightness-110 transition" data-en="Send Inquiry" data-es="Enviar Consulta">Send Inquiry</button>
+            <div class="grid md:grid-cols-2 gap-20">
+                <div data-aos="fade-right">
+                    <h2 class="text-4xl font-bold mb-8">Send a Message</h2>
+                    <form id="contact-form" class="space-y-6">
+                        <input type="text" name="name" placeholder="Full Name" required class="w-full p-5 rounded-2xl bg-white/5 border border-white/10 focus:border-ednova-cyan outline-none transition">
+                        <input type="email" name="email" placeholder="Email Address" required class="w-full p-5 rounded-2xl bg-white/5 border border-white/10 focus:border-ednova-cyan outline-none transition">
+                        <textarea name="message" rows="4" placeholder="How can we help?" required class="w-full p-5 rounded-2xl bg-white/5 border border-white/10 focus:border-ednova-cyan outline-none transition"></textarea>
+                        <button type="submit" class="w-full bg-ednova-cyan text-ednova-blue font-black py-5 rounded-2xl hover:shadow-[0_0_20px_rgba(31,224,214,0.4)] transition shadow-lg">SEND INQUIRY</button>
                     </form>
                 </div>
 
-                <div>
-                    <h2 class="text-4xl font-bold mb-6" data-en="Schedule a Meeting" data-es="Agenda una Reunión">Schedule a Meeting</h2>
-                    <p class="mb-6 text-slate-400" data-en="Select a time that works for you. You will receive a Google Calendar invite automatically." data-es="Selecciona el horario que mejor te convenga. Recibirás una invitación de Google Calendar automáticamente.">Select a time that works for you. You will receive a Google Calendar invite automatically.</p>
-                    <div class="calendly-inline-widget" data-url="https://calendly.com/camilaolivo99" style="min-width:320px;height:580px;"></div>
-                    </div>
+                <div data-aos="fade-left">
+                    <h2 class="text-4xl font-bold mb-8">Schedule Call</h2>
+                    <div class="calendly-inline-widget rounded-3xl overflow-hidden" data-url="https://calendly.com/camilaolivo99" style="min-width:320px;height:500px;"></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <a href="https://wa.me/17174951877" target="_blank" class="fixed bottom-8 right-8 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition z-50">
-        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.062c-3.414 0-6.191 2.771-6.191 6.182 0 1.25.375 2.454 1.082 3.484l-1.125 4.102 4.191-1.102c1.016.59 2.164.914 3.359.914 3.414 0 6.191-2.77 6.191-6.181-.001-3.41-2.778-6.182-6.192-6.182zm3.839 8.814c-.195.547-1.141 1.016-1.57.106-.118-.176-.582-.676-1.156-1.223-.605-.578-.859-.727-1.094-.727-.234 0-.469.148-.711.391-.242.242-.492.492-.734.734-.234.234-.461.344-.695.344s-.461-.117-.695-.352c-.242-.234-.484-.469-.727-.711-.234-.234-.344-.461-.344-.695 0-.234.117-.469.352-.703.242-.242.492-.492.734-.734.234-.234.344-.461.344-.695s-.117-.469-.352-.703c-.234-.242-.469-.484-.711-.727-.234-.234-.461-.344-.695-.344s-.469.117-.703.352c-.234.242-.469.484-.711.727-.242.242-.352.461-.352.695s.117.461.352.695c.242.242.484.484.719.719s.469.352.703.352.469-.117.703-.352c.242-.242.484-.484.727-.719.234-.234.344-.469.344-.703s-.117-.469-.352-.703z"></path></svg>
+    <a href="https://wa.me/17174951877" target="_blank" class="fixed bottom-8 right-8 bg-green-500 text-white p-5 rounded-full shadow-2xl hover:scale-110 transition-all z-50 animate-bounce">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.062c-3.414 0-6.191 2.771-6.191 6.182 0 1.25.375 2.454 1.082 3.484l-1.125 4.102 4.191-1.102c1.016.59 2.164.914 3.359.914 3.414 0 6.191-2.77 6.191-6.181-.001-3.41-2.778-6.182-6.192-6.182zm3.839 8.814c-.195.547-1.141 1.016-1.57.106-.118-.176-.582-.676-1.156-1.223-.605-.578-.859-.727-1.094-.727-.234 0-.469.148-.711.391-.242.242-.492.492-.734.734-.234.234-.461.344-.695.344s-.461-.117-.695-.352c-.242-.234-.484-.469-.727-.711-.234-.234-.344-.461-.344-.695 0-.234.117-.469.352-.703.242-.242.492-.492.734-.734.234-.234.344-.461.344-.695s-.117-.469-.352-.703z"></path></svg>
     </a>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        AOS.init({ duration: 1000, once: true });
+
         let currentLang = 'en';
         
         function toggleLanguage() {
@@ -169,6 +214,21 @@
             
             label.textContent = currentLang === 'en' ? 'ESP' : 'ENG';
         }
+
+        // Typing effect
+        const words = ["Success", "Growth", "Efficiency", "Future"];
+        let wordIndex = 0;
+        const typingElement = document.getElementById('typing-text');
+
+        function rotateWords() {
+            typingElement.style.opacity = 0;
+            setTimeout(() => {
+                wordIndex = (wordIndex + 1) % words.length;
+                typingElement.textContent = words[wordIndex];
+                typingElement.style.opacity = 1;
+            }, 500);
+        }
+        setInterval(rotateWords, 3000);
     </script>
 </body>
 </html>
