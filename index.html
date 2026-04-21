@@ -21,6 +21,7 @@
                     },
                     animation: {
                         'blob': 'blob 10s infinite',
+                        'pulse-gentle': 'pulse-gentle 2s infinite',
                     },
                     keyframes: {
                         blob: {
@@ -28,6 +29,10 @@
                             '33%': { transform: 'translate(40px, -60px) scale(1.1)' },
                             '66%': { transform: 'translate(-30px, 30px) scale(0.9)' },
                             '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        'pulse-gentle': {
+                            '0%, 100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(34, 197, 94, 0.7)' },
+                            '50%': { transform: 'scale(1.1)', boxShadow: '0 0 20px 10px rgba(34, 197, 94, 0)' },
                         }
                     }
                 }
@@ -47,7 +52,8 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .blob-bg { filter: blur(90px); z-index: -1; }
-        [data-aos] { opacity: 1 !important; transform: none !important; }
+        /* Fallback para visibilidad */
+        [data-aos] { pointer-events: auto !important; }
     </style>
 </head>
 <body class="bg-ednova-light text-slate-800 font-sans overflow-x-hidden">
@@ -100,17 +106,17 @@
     <section id="why-ednova" class="py-24 px-6">
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-3 gap-12">
-                <div class="text-center p-8" data-aos="fade-up">
+                <div class="text-center p-8" data-aos="fade-up" data-aos-delay="100">
                     <div class="w-16 h-16 bg-ednova-cyan/20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">🛡️</div>
                     <h3 class="text-2xl font-bold mb-4 text-ednova-blue" data-en="Digital Peace of Mind" data-es="Tranquilidad Digital">Digital Peace of Mind</h3>
                     <p class="text-slate-600 leading-relaxed" data-en="Focus on your business while I handle the tech. Includes priority support, security updates, and monthly content changes." data-es="Enfócate en tu negocio mientras yo manejo la tecnología. Incluye soporte prioritario, actualizaciones de seguridad y cambios de contenido mensuales.">Focus on your business while I handle the tech. Includes priority support, security updates, and monthly content changes.</p>
                 </div>
-                <div class="text-center p-8" data-aos="fade-up" data-aos-delay="200">
+                <div class="text-center p-8" data-aos="fade-up" data-aos-delay="300">
                     <div class="w-16 h-16 bg-ednova-cyan/20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">⭐</div>
                     <h3 class="text-2xl font-bold mb-4 text-ednova-blue" data-en="Senior Expertise" data-es="Calidad Senior">Senior Expertise</h3>
                     <p class="text-slate-600 leading-relaxed" data-en="You get professional software quality designed by experts, not generic templates. Your business deserves to look premium." data-es="Recibes calidad de software profesional diseñado por expertos, no plantillas genéricas. Tu negocio merece verse premium.">You get professional software quality designed by experts, not generic templates. Your business deserves to look premium.</p>
                 </div>
-                <div class="text-center p-8" data-aos="fade-up" data-aos-delay="400">
+                <div class="text-center p-8" data-aos="fade-up" data-aos-delay="500">
                     <div class="w-16 h-16 bg-ednova-cyan/20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">🤝</div>
                     <h3 class="text-2xl font-bold mb-4 text-ednova-blue" data-en="Human Support" data-es="Trato Humano">Human Support</h3>
                     <p class="text-slate-600 leading-relaxed" data-en="No bots, no long wait times. You speak directly with the expert building your digital future." data-es="Sin bots, sin largas esperas. Hablas directamente con la experta que construye tu futuro digital.">No bots, no long wait times. You speak directly with the expert building your digital future.</p>
@@ -123,7 +129,8 @@
         <div class="max-w-7xl mx-auto">
             <h2 class="text-4xl font-bold text-center mb-20 text-ednova-blue" data-aos="fade-up" data-en="Simple, All-Inclusive Pricing" data-es="Precios Simples y Todo Incluido">Simple, All-Inclusive Pricing</h2>
             <div class="grid md:grid-cols-3 gap-10">
-                <div class="glass p-12 rounded-[2rem] hover:shadow-2xl transition-all border-none" data-aos="fade-up">
+                
+                <div class="glass p-12 rounded-[2rem] hover:shadow-2xl transition-all border-none" data-aos="zoom-in" data-aos-delay="100">
                     <h3 class="text-2xl font-bold mb-2">Essential</h3>
                     <p class="text-slate-500 mb-8" data-en="Your digital home." data-es="Tu casa digital.">Your digital home.</p>
                     <div class="text-5xl font-black text-ednova-blue mb-8">$850</div>
@@ -134,8 +141,9 @@
                     </ul>
                     <a href="#contact" class="block text-center py-4 rounded-xl bg-slate-100 text-ednova-blue font-bold hover:bg-ednova-blue hover:text-white transition" data-en="Get Started" data-es="Comenzar">Get Started</a>
                 </div>
-                <div class="glass p-12 rounded-[2rem] border-2 border-ednova-cyan shadow-2xl relative scale-105 z-10" data-aos="fade-up" data-aos-delay="200">
-                    <div class="absolute top-0 right-0 bg-ednova-cyan text-ednova-blue text-[11px] font-black px-5 py-1.5 rounded-bl-2xl uppercase" data-en="Most Popular" data-es="Mas Popular">Most Popular</div>
+                
+                <div class="glass p-12 rounded-[2rem] border-2 border-ednova-cyan shadow-2xl relative scale-105 z-10" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="absolute top-0 right-0 bg-ednova-cyan text-ednova-blue text-[11px] font-black px-5 py-1.5 rounded-bl-2xl uppercase" data-en="Growth Engine" data-es="Motor de Crecimiento">Growth Engine</div>
                     <h3 class="text-2xl font-bold mb-2">Growth Kit</h3>
                     <p class="text-slate-500 mb-8" data-en="Be found everywhere." data-es="Que te encuentren todos.">Be found everywhere.</p>
                     <div class="text-5xl font-black text-ednova-blue mb-8">$1,350</div>
@@ -147,7 +155,8 @@
                     </ul>
                     <a href="#contact" class="block text-center py-4 rounded-xl bg-ednova-blue text-white font-bold hover:bg-ednova-cyan hover:text-ednova-blue transition shadow-lg" data-en="Select Plan" data-es="Seleccionar Plan">Select Plan</a>
                 </div>
-                <div class="glass p-12 rounded-[2rem] hover:shadow-2xl transition-all border-none" data-aos="fade-up" data-aos-delay="400">
+                
+                <div class="glass p-12 rounded-[2rem] hover:shadow-2xl transition-all border-none" data-aos="zoom-in" data-aos-delay="500">
                     <h3 class="text-2xl font-bold mb-2">Elite</h3>
                     <p class="text-slate-500 mb-8" data-en="Total peace of mind." data-es="Tranquilidad total.">Total peace of mind.</p>
                     <div class="text-5xl font-black text-ednova-blue mb-8">$2,150</div>
@@ -164,7 +173,7 @@
     </section>
 
     <section id="maintenance" class="py-20 px-6">
-        <div class="max-w-4xl mx-auto glass p-10 rounded-[2.5rem] text-center shadow-lg" data-aos="zoom-in">
+        <div class="max-w-4xl mx-auto glass p-10 rounded-[2.5rem] text-center shadow-lg" data-aos="fade-up">
             <h2 class="text-3xl font-bold text-ednova-blue mb-4" data-en="Need Ongoing Support?" data-es="¿Necesitas Soporte Continuo?">Need Ongoing Support?</h2>
             <p class="text-lg text-slate-600 mb-8" data-en="Keep your business identity fresh and secure. Our monthly maintenance plans cover everything from content updates to technical security." data-es="Mantén tu identidad de negocio fresca y segura. Nuestros planes de mantenimiento mensual cubren todo, desde actualizaciones de contenido hasta seguridad técnica.">Keep your business identity fresh and secure. Our monthly maintenance plans cover everything from content updates to technical security.</p>
             <div class="inline-flex items-center gap-2 bg-ednova-cyan/10 text-ednova-blue font-bold px-6 py-2 rounded-full mb-6">
@@ -179,7 +188,7 @@
     <section id="contact" class="py-32 bg-slate-900 text-white px-6">
         <div class="max-w-7xl mx-auto">
             
-            <div class="glass-dark p-12 rounded-[3rem] mb-20 flex flex-col md:flex-row items-center gap-12" data-aos="zoom-in">
+            <div class="glass-dark p-12 rounded-[3rem] mb-20 flex flex-col md:flex-row items-center gap-12" data-aos="fade-up">
                 <div class="relative">
                     <div class="absolute -inset-2 bg-gradient-to-r from-ednova-cyan to-blue-500 rounded-full blur opacity-40 animate-pulse"></div>
                     <img src="profile-edith.JPG" alt="Edith Olivo" class="relative w-44 h-44 md:w-60 md:h-60 rounded-full object-cover border-4 border-white/10 shadow-2xl">
@@ -202,7 +211,7 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-24">
-                <div>
+                <div data-aos="fade-right">
                     <h2 class="text-4xl font-bold mb-8" data-en="Send a Message" data-es="Escríbenos">Send a Message</h2>
                     <form id="contact-form" action="https://formspree.io/f/mkokrpwp" method="POST" class="space-y-6">
                         <input type="text" name="name" placeholder="Name" required class="w-full p-5 rounded-2xl bg-white/5 border border-white/10 focus:border-ednova-cyan outline-none transition text-lg text-white">
@@ -211,7 +220,7 @@
                         <button type="submit" class="w-full bg-ednova-cyan text-ednova-blue font-black py-5 rounded-2xl hover:brightness-110 transition shadow-2xl text-xl uppercase tracking-widest">Send Inquiry</button>
                     </form>
                 </div>
-                <div>
+                <div data-aos="fade-left">
                     <h2 class="text-4xl font-bold mb-8" data-en="Book a Discovery Call" data-es="Reserva una llamada">Book a Discovery Call</h2>
                     <div class="calendly-inline-widget rounded-[2rem] overflow-hidden shadow-2xl" data-url="https://calendly.com/camilaolivo99" style="min-width:320px;height:550px;"></div>
                 </div>
@@ -219,13 +228,16 @@
         </div>
     </section>
 
-    <a href="https://wa.me/17174951877" target="_blank" class="fixed bottom-10 right-10 bg-green-500 text-white p-6 rounded-full shadow-2xl hover:scale-110 transition-all z-50">
-        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.062c-3.414 0-6.191 2.771-6.191 6.182 0 1.25.375 2.454 1.082 3.484l-1.125 4.102 4.191-1.102c1.016.59 2.164.914 3.359.914 3.414 0 6.191-2.77 6.191-6.181-.001-3.41-2.778-6.182-6.192-6.182zm3.839 8.814c-.195.547-1.141 1.016-1.57.106-.118-.176-.582-.676-1.156-1.223-.605-.578-.859-.727-1.094-.727-.234 0-.469.148-.711.391-.242.242-.492.492-.734.734-.234.234-.461.344-.695.344s-.461-.117-.695-.352c-.242-.234-.484-.469-.727-.711-.234-.234-.344-.461-.344-.695 0-.234.117-.469.352-.703.242-.242.492-.492.734-.734.234-.234.344-.461.344-.695s-.117-.469-.352-.703c-.234-.242-.469-.484-.711-.727-.234-.234-.461-.344-.695-.344s-.469.117-.703.352c-.234.242-.469.484-.711.727-.242.242-.352.461-.352.695s.117.461.352.695c.242.242.484.484.719.719s.469.352.703.352.469-.117.703-.352c.242-.242.484-.484.727-.719.234-.234.344-.469.344-.703s-.117-.469-.352-.703z"></path></svg>
+    <a href="https://wa.me/17174951877" target="_blank" class="fixed bottom-10 right-10 bg-green-500 text-white p-5 rounded-full shadow-2xl z-50 animate-pulse-gentle transition-transform hover:scale-110 flex items-center justify-center">
+        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12.031 6.062c-3.414 0-6.191 2.771-6.191 6.182 0 1.25.375 2.454 1.082 3.484l-1.125 4.102 4.191-1.102c1.016.59 2.164.914 3.359.914 3.414 0 6.191-2.77 6.191-6.181-.001-3.41-2.778-6.182-6.192-6.182zm3.839 8.814c-.195.547-1.141 1.016-1.57.106-.118-.176-.582-.676-1.156-1.223-.605-.578-.859-.727-1.094-.727-.234 0-.469.148-.711.391-.242.242-.492.492-.734.734-.234.234-.461.344-.695.344s-.461-.117-.695-.352c-.242-.234-.484-.469-.727-.711-.234-.234-.344-.461-.344-.695 0-.234.117-.469.352-.703.242-.242.492-.492.734-.734.234-.234.344-.461.344-.695s-.117-.469-.352-.703c-.234-.242-.469-.484-.711-.727-.234-.234-.461-.344-.695-.344s-.469.117-.703.352c-.234.242-.469.484-.711.727-.242.242-.352.461-.352.695s.117.461.352.695c.242.242.484.484.719.719s.469.352.703.352.469-.117.703-.352c.242-.242.484-.484.727-.719.234-.234.344-.469.344-.703s-.117-.469-.352-.703z"></path>
+        </svg>
     </a>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1200, once: true });
+        // Inicialización de AOS
+        AOS.init({ duration: 1000, once: true, offset: 100 });
 
         let currentLang = 'en';
         function toggleLanguage() {
