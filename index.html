@@ -47,7 +47,6 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .blob-bg { filter: blur(90px); z-index: -1; }
-        /* Evita que AOS deje la página en blanco si falla */
         [data-aos] { opacity: 1 !important; transform: none !important; }
     </style>
 </head>
@@ -103,12 +102,12 @@
             <div class="grid md:grid-cols-3 gap-12">
                 <div class="text-center p-8" data-aos="fade-up">
                     <div class="w-16 h-16 bg-ednova-cyan/20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">🛡️</div>
-                    <h3 class="text-2xl font-bold mb-4 text-ednova-blue" data-en="Zero Monthly Fees" data-es="Sin Mensualidades">Zero Monthly Fees</h3>
-                    <p class="text-slate-600 leading-relaxed" data-en="Forget about expensive hosting subscriptions. Once your site is live, it stays live without monthly bills." data-es="Olvídate de costosas suscripciones de hosting. Una vez que tu sitio está activo, permanece activo sin facturas mensuales.">Forget about expensive hosting subscriptions. Once your site is live, it stays live without monthly bills.</p>
+                    <h3 class="text-2xl font-bold mb-4 text-ednova-blue" data-en="Digital Peace of Mind" data-es="Tranquilidad Digital">Digital Peace of Mind</h3>
+                    <p class="text-slate-600 leading-relaxed" data-en="Focus on your business while I handle the tech. Includes priority support, security updates, and monthly content changes." data-es="Enfócate en tu negocio mientras yo manejo la tecnología. Incluye soporte prioritario, actualizaciones de seguridad y cambios de contenido mensuales.">Focus on your business while I handle the tech. Includes priority support, security updates, and monthly content changes.</p>
                 </div>
                 <div class="text-center p-8" data-aos="fade-up" data-aos-delay="200">
                     <div class="w-16 h-16 bg-ednova-cyan/20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">⭐</div>
-                    <h3 class="text-2xl font-bold mb-4 text-ednova-blue" data-en="Senior Expertise" data-es="Alta Calidad">Senior Expertise</h3>
+                    <h3 class="text-2xl font-bold mb-4 text-ednova-blue" data-en="Senior Expertise" data-es="Calidad Senior">Senior Expertise</h3>
                     <p class="text-slate-600 leading-relaxed" data-en="You get professional software quality designed by experts, not generic templates. Your business deserves to look premium." data-es="Recibes calidad de software profesional diseñado por expertos, no plantillas genéricas. Tu negocio merece verse premium.">You get professional software quality designed by experts, not generic templates. Your business deserves to look premium.</p>
                 </div>
                 <div class="text-center p-8" data-aos="fade-up" data-aos-delay="400">
@@ -138,7 +137,7 @@
                 </div>
                 
                 <div class="glass p-12 rounded-[2rem] border-2 border-ednova-cyan shadow-2xl relative scale-105 z-10" data-aos="fade-up" data-aos-delay="200">
-                    <div class="absolute top-0 right-0 bg-ednova-cyan text-ednova-blue text-[11px] font-black px-5 py-1.5 rounded-bl-2xl uppercase" data-en="Most Popular" data-es="Mas Popular">Mas Popular</div>
+                    <div class="absolute top-0 right-0 bg-ednova-cyan text-ednova-blue text-[11px] font-black px-5 py-1.5 rounded-bl-2xl uppercase" data-en="Growth Engine" data-es="Motor de Crecimiento">Growth Engine</div>
                     <h3 class="text-2xl font-bold mb-2">Growth Kit</h3>
                     <p class="text-slate-500 mb-8" data-en="Be found everywhere." data-es="Que te encuentren todos.">Be found everywhere.</p>
                     <div class="text-5xl font-black text-ednova-blue mb-8">$1,350</div>
@@ -151,7 +150,7 @@
                     <a href="#contact" class="block text-center py-4 rounded-xl bg-ednova-blue text-white font-bold hover:bg-ednova-cyan hover:text-ednova-blue transition shadow-lg" data-en="Select Plan" data-es="Seleccionar Plan">Select Plan</a>
                 </div>
                 
-                <div class="glass p-12 rounded-[2rem] hover:shadow-2xl transition-all" data-aos="fade-up" data-aos-delay="400">
+                <div class="glass p-12 rounded-[2rem] hover:shadow-2xl transition-all border-none" data-aos="fade-up" data-aos-delay="400">
                     <h3 class="text-2xl font-bold mb-2">Elite</h3>
                     <p class="text-slate-500 mb-8" data-en="Total peace of mind." data-es="Tranquilidad total.">Total peace of mind.</p>
                     <div class="text-5xl font-black text-ednova-blue mb-8">$2,150</div>
@@ -196,9 +195,9 @@
                 <div>
                     <h2 class="text-4xl font-bold mb-8" data-en="Send a Message" data-es="Escríbenos">Send a Message</h2>
                     <form id="contact-form" action="https://formspree.io/f/mkokrpwp" method="POST" class="space-y-6">
-                        <input type="text" name="name" placeholder="Name" required class="w-full p-5 rounded-2xl bg-white/5 border border-white/10 focus:border-ednova-cyan outline-none transition text-lg">
-                        <input type="email" name="email" placeholder="Email" required class="w-full p-5 rounded-2xl bg-white/5 border border-white/10 focus:border-ednova-cyan outline-none transition text-lg">
-                        <textarea name="message" rows="4" placeholder="How can I help you?" required class="w-full p-5 rounded-2xl bg-white/5 border border-white/10 focus:border-ednova-cyan outline-none transition text-lg"></textarea>
+                        <input type="text" name="name" placeholder="Name" required class="w-full p-5 rounded-2xl bg-white/5 border border-white/10 focus:border-ednova-cyan outline-none transition text-lg text-white">
+                        <input type="email" name="email" placeholder="Email" required class="w-full p-5 rounded-2xl bg-white/5 border border-white/10 focus:border-ednova-cyan outline-none transition text-lg text-white">
+                        <textarea name="message" rows="4" placeholder="How can I help you?" required class="w-full p-5 rounded-2xl bg-white/5 border border-white/10 focus:border-ednova-cyan outline-none transition text-lg text-white"></textarea>
                         <button type="submit" class="w-full bg-ednova-cyan text-ednova-blue font-black py-5 rounded-2xl hover:brightness-110 transition shadow-2xl text-xl uppercase tracking-widest">Send Inquiry</button>
                     </form>
                 </div>
@@ -211,7 +210,7 @@
     </section>
 
     <a href="https://wa.me/17174951877" target="_blank" class="fixed bottom-10 right-10 bg-green-500 text-white p-6 rounded-full shadow-2xl hover:scale-110 transition-all z-50">
-        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.062c-3.414 0-6.191 2.771-6.191 6.182 0 1.25.375 2.454 1.082 3.484l-1.125 4.102 4.191-1.102c1.016.59 2.164.914 3.359.914 3.414 0 6.191-2.77 6.191-6.181-.001-3.41-2.778-6.182-6.192-6.182zm3.839 8.814c-.195.547-1.141 1.016-1.57.106-.118-.176-.582-.676-1.156-1.223-.605-.578-.859-.727-1.094-.727-.234 0-.469.148-.711.391-.242.242-.492.492-.734.734-.234.234-.461.344-.695.344s-.461-.117-.695-.352c-.242-.234-.484-.469-.727-.711-.234-.234-.344-.461-.344-.695 0-.234.117-.469.352-.703.242-.242.492-.492.734-.734.234-.234.344-.461.344-.695s-.117-.469-.352-.703z"></path></svg>
+        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.062c-3.414 0-6.191 2.771-6.191 6.182 0 1.25.375 2.454 1.082 3.484l-1.125 4.102 4.191-1.102c1.016.59 2.164.914 3.359.914 3.414 0 6.191-2.77 6.191-6.181-.001-3.41-2.778-6.182-6.192-6.182zm3.839 8.814c-.195.547-1.141 1.016-1.57.106-.118-.176-.582-.676-1.156-1.223-.605-.578-.859-.727-1.094-.727-.234 0-.469.148-.711.391-.242.242-.492.492-.734.734-.234.234-.461.344-.695.344s-.461-.117-.695-.352c-.242-.234-.484-.469-.727-.711-.234-.234-.344-.461-.344-.695 0-.234.117-.469.352-.703.242-.242.492-.492.734-.734.234-.234.344-.461.344-.695s-.117-.469-.352-.703c-.234-.242-.469-.484-.711-.727-.234-.234-.461-.344-.695-.344s-.469.117-.703.352c-.234.242-.469.484-.711.727-.242.242-.352.461-.352.695s.117.461.352.695c.242.242.484.484.719.719s.469.352.703.352.469-.117.703-.352c.242-.242.484-.484.727-.719.234-.234.344-.469.344-.703s-.117-.469-.352-.703z"></path></svg>
     </a>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
