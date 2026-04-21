@@ -4,6 +4,195 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ednova Consulting | Digital Growth & Automation</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ednova-blue': '#0C2C4E',
+                        'ednova-cyan': '#1FE0D6',
+                        'ednova-light': '#F8FAFC',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .glass {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .glass-dark {
+            background: rgba(10, 25, 47, 0.85);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .blob-bg { filter: blur(90px); z-index: -1; }
+        
+        /* Animación de manchas de fondo personalizada */
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(40px, -60px) scale(1.1); }
+            66% { transform: translate(-30px, 30px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob { animation: blob 10s infinite; }
+        
+        /* Fallback para evitar página en blanco si falla AOS */
+        [data-aos] { opacity: 1 !important; transform: none !important; }
+    </style>
+</head>
+<body class="bg-ednova-light text-slate-800 font-sans overflow-x-hidden">
+
+    <div class="fixed inset-0 blob-bg">
+        <div class="absolute top-0 -left-10 w-96 h-96 bg-ednova-cyan/20 rounded-full animate-blob"></div>
+        <div class="absolute bottom-0 -right-10 w-96 h-96 bg-blue-400/10 rounded-full animate-blob" style="animation-delay: 4s;"></div>
+    </div>
+
+    <nav class="fixed w-full glass z-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-ednova-blue rounded-xl flex items-center justify-center shadow-lg">
+                    <span class="text-ednova-cyan font-bold text-xl">E</span>
+                </div>
+                <span class="text-2xl font-bold text-ednova-blue tracking-tight">Ednova<span class="text-ednova-cyan font-medium">Consulting</span></span>
+            </div>
+            
+            <div class="flex flex-col items-end">
+                <div class="hidden md:flex items-center gap-8 mb-1">
+                    <a href="#home" data-en="Home" data-es="Inicio" class="font-semibold text-ednova-blue hover:text-ednova-cyan transition">Home</a>
+                    <a href="#why-ednova" data-en="Why Us?" data-es="¿Por qué nosotros?" class="font-semibold text-ednova-blue hover:text-ednova-cyan transition">Why Us?</a>
+                    <a href="#programs" data-en="Plans" data-es="Planes" class="font-semibold text-ednova-blue hover:text-ednova-cyan transition">Plans</a>
+                    <a href="#contact" data-en="Contact" data-es="Contacto" class="bg-ednova-blue text-white px-6 py-2.5 rounded-full hover:bg-ednova-cyan hover:text-ednova-blue transition shadow-md font-bold">Contact</a>
+                </div>
+                <button onclick="toggleLanguage()" class="flex items-center gap-2 bg-white/80 border border-slate-300 px-3 py-1 rounded-full text-[10px] font-black hover:bg-ednova-cyan/20 transition shadow-sm uppercase tracking-wider">
+                    🌐 Translate / Traducir: <span id="lang-label" class="text-ednova-blue ml-1">ESP</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="pt-52 pb-24 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <div data-aos="fade-up">
+                <h1 class="text-5xl md:text-8xl font-black text-ednova-blue mb-8 leading-none">
+                    <span data-en="Better results," data-es="Mejores resultados,">Better results,</span><br>
+                    <span id="typing-text" class="text-transparent bg-clip-text bg-gradient-to-r from-ednova-blue to-ednova-cyan">Success</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-slate-600 mb-12 max-w-3xl mx-auto font-medium" data-en="We simplify technology so you can focus on what you do best: running your business." data-es="Simplificamos la tecnología para que puedas concentrarte en lo que mejor haces: dirigir tu negocio.">
+                    We simplify technology so you can focus on what you do best: running your business.
+                </p>
+                <div class="flex flex-col md:flex-row justify-center gap-6">
+                    <a href="#contact" class="bg-ednova-blue text-white px-12 py-5 rounded-2xl font-bold shadow-xl transition-all scale-105 hover:scale-110" data-en="Start Today" data-es="Empieza Hoy">Start Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-ednova" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="text-center p-8" data-aos="fade-up">
+                    <div class="w-16 h-16 bg-ednova-cyan/20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">🛡️</div>
+                    <h3 class="text-2xl font-bold mb-4 text-ednova-blue" data-en="Zero Monthly Fees" data-es="Sin Mensualidades">Zero Monthly Fees</h3>
+                    <p class="text-slate-600 leading-relaxed" data-en="Forget about expensive hosting subscriptions. Once your site is live, it stays live without monthly bills." data-es="Olvídate de costosas suscripciones de hosting. Una vez que tu sitio está activo, permanece activo sin facturas mensuales.">Forget about expensive hosting subscriptions. Once your site is live, it stays live without monthly bills.</p>
+                </div>
+                <div class="text-center p-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-ednova-cyan/20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">⭐</div>
+                    <h3 class="text-2xl font-bold mb-4 text-ednova-blue" data-en="Senior Expertise" data-es="Calidad Senior">Senior Expertise</h3>
+                    <p class="text-slate-600 leading-relaxed" data-en="You get professional software quality designed by experts, not generic templates. Your business deserves to look premium." data-es="Recibes calidad de software profesional diseñado por expertos, no plantillas genéricas. Tu negocio merece verse premium.">You get professional software quality designed by experts, not generic templates. Your business deserves to look premium.</p>
+                </div>
+                <div class="text-center p-8" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-ednova-cyan/20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">🤝</div>
+                    <h3 class="text-2xl font-bold mb-4 text-ednova-blue" data-en="Human Support" data-es="Trato Humano">Human Support</h3>
+                    <p class="text-slate-600 leading-relaxed" data-en="No bots, no long wait times. You speak directly with the expert building your digital future." data-es="Sin bots, sin largas esperas. Hablas directamente con la experta que construye tu futuro digital.">No bots, no long wait times. You speak directly with the expert building your digital future.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="programs" class="py-24 px-6 bg-white/50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-20 text-ednova-blue" data-aos="fade-up" data-en="Simple, All-Inclusive Pricing" data-es="Precios Simples y Todo Incluido">Simple, All-Inclusive Pricing</h2>
+            <div class="grid md:grid-cols-3 gap-10">
+                
+                <div class="glass p-12 rounded-[2rem] hover:shadow-2xl transition-all border-none" data-aos="fade-up">
+                    <h3 class="text-2xl font-bold mb-2">Essential</h3>
+                    <p class="text-slate-500 mb-8" data-en="Your digital home." data-es="Tu casa digital.">Your digital home.</p>
+                    <div class="text-5xl font-black text-ednova-blue mb-8">$850</div>
+                    <ul class="space-y-4 mb-10 text-slate-600 font-medium">
+                        <li>• <span data-en="Custom Pro Website" data-es="Sitio Web Pro Personalizado">Custom Pro Website</span></li>
+                        <li>• <span data-en="WhatsApp Direct Link" data-es="Link Directo a WhatsApp">WhatsApp Direct Link</span></li>
+                        <li>• <span data-en="Free Web Address (1yr)" data-es="Dirección Web Gratis (1 año)">Free Web Address (1yr)</span></li>
+                    </ul>
+                    <a href="#contact" class="block text-center py-4 rounded-xl bg-slate-100 text-ednova-blue font-bold hover:bg-ednova-blue hover:text-white transition" data-en="Get Started" data-es="Comenzar">Get Started</a>
+                </div>
+                
+                <div class="glass p-12 rounded-[2rem] border-2 border-ednova-cyan shadow-2xl relative scale-105 z-10" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 right-0 bg-ednova-cyan text-ednova-blue text-[11px] font-black px-5 py-1.5 rounded-bl-2xl uppercase" data-en="Growth Engine" data-es="Motor de Crecimiento">Growth Engine</div>
+                    <h3 class="text-2xl font-bold mb-2">Growth Kit</h3>
+                    <p class="text-slate-500 mb-8" data-en="Be found everywhere." data-es="Que te encuentren todos.">Be found everywhere.</p>
+                    <div class="text-5xl font-black text-ednova-blue mb-8">$1,350</div>
+                    <ul class="space-y-4 mb-10 text-ednova-blue font-bold">
+                        <li>✓ <span data-en="Full Website (5 sections)" data-es="Web Completa (5 secciones)">Full Website (5 sections)</span></li>
+                        <li>✓ <span data-en="Google Maps Setup" data-es="Aparecer en Google Maps">Google Maps Setup</span></li>
+                        <li>✓ <span data-en="2 Digital Promo Flyers" data-es="2 Flyers Publicitarios">2 Digital Promo Flyers</span></li>
+                        <li>✓ <span data-en="Customer Contact Form" data-es="Formulario de Clientes">Customer Contact Form</span></li>
+                    </ul>
+                    <a href="#contact" class="block text-center py-4 rounded-xl bg-ednova-blue text-white font-bold hover:bg-ednova-cyan hover:text-ednova-blue transition shadow-lg" data-en="Select Plan" data-es="Seleccionar Plan">Select Plan</a>
+                </div>
+                
+                <div class="glass p-12 rounded-[2rem] hover:shadow-2xl transition-all border-none" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-2xl font-bold mb-2">Elite</h3>
+                    <p class="text-slate-500 mb-8" data-en="Total peace of mind." data-es="Tranquilidad total.">Total peace of mind.</p>
+                    <div class="text-5xl font-black text-ednova-blue mb-8">$2,150</div>
+                    <ul class="space-y-4 mb-10 text-slate-600 font-medium">
+                        <li>• <span data-en="Brand Logo Design" data-es="Diseño de Logo">Brand Logo Design</span></li>
+                        <li>• <span data-en="Custom Workflows" data-es="Sistemas Automáticos">Custom Workflows</span></li>
+                        <li>• <span data-en="5 Digital Flyers" data-es="5 Flyers Publicitarios">5 Digital Flyers</span></li>
+                        <li>• <span data-en="Priority Support" data-es="Soporte Prioritario">Priority Support</span></li>
+                    </ul>
+                    <a href="#contact" class="block text-center py-4 rounded-xl bg-slate-100 text-ednova-blue font-bold hover:bg-ednova-blue hover:text-white transition" data-en="Inquire Now" data-es="Consultar">Inquire Now</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-32 bg-slate-900 text-white px-6">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="glass-dark p-12 rounded-[3rem] mb-20 flex flex-col md:flex-row items-center gap-12" data-aos="zoom-in">
+                <div class="relative">
+                    <div class="absolute -inset-2 bg-gradient-to-r from-ednova-cyan to-blue-500 rounded-full blur opacity-40 animate-pulse"></div>
+                    <img src="profile-edith.JPG" alt="Edith Olivo" class="relative w-44 h-44 md:w-60 md:h-60 rounded-full object-cover border-4 border-white/10 shadow-2xl">
+                </div>
+                
+                <div class="text-center md:text-left flex-1">
+                    <div class="flex items-center justify-center md:justify-start gap-5 mb-4">
+                        <h2 class="text-5xl font-black">Edith Olivo</h2>
+                        <a href="https://www.linkedin.com/in/edith-olivo-ednova-consulting/" target="_blank" class="bg-ednova-cyan p-2.5 rounded-xl text-ednova-blue hover:scale-110 transition shadow-xl">
+                            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                    </div>
+                    <p class="text-ednova-cyan text-2xl font-bold mb-6 uppercase tracking-[0.2em]">Senior Developer</p>
+                    <p class="text-slate-300 text-xl leading-relaxed max-w-2xl" 
+                       data-en="I help business owners reclaim their time. By building smart websites and organizing your digital systems, I make sure technology works for you, so you can focus on what matters." 
+                       data-es="Ayudo a dueños de negocios a recuperar su tiempo. Al construir sitios web inteligentes y organizar tus sistemas digitales, me aseguro de que la tecnología trabaje para ti, para que puedas enfocarte en lo importante.">
+                        I help business owners reclaim their time. By building smart websites and organizing your digital systems, I make sure technology works for you, so you can focus on what matters.<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ednova Consulting | Digital Growth & Automation</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
